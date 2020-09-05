@@ -6,6 +6,6 @@ package jdbc_1connecttest;
 */
 public class gittext {
 	public static void main(String[]args) {
-		
+		System.out.println("test");
 	}
 }
