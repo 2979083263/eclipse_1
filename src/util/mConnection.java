@@ -19,7 +19,7 @@ public class mConnection {
 	public static Connection mconnection() throws Exception{
 		InputStream input = ClassLoader.getSystemClassLoader().getResourceAsStream("jdbc.properties");
 		Properties pro = new Properties();
-		
+
 		pro.load(input);
 
 		String url = pro.getProperty("url");
