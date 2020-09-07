@@ -3,7 +3,11 @@ package jdbc_1connecttest;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.SQLException;
+import java.text.SimpleDateFormat;
+import java.util.Date;
+
 import util.mConnection;
+import util.union;
 
 /**
 * @author 刘春阳
@@ -12,21 +16,15 @@ import util.mConnection;
 */
 
 public class updates {
-	public static void main(String[] args){
-		Connection con = null;
-		PreparedStatement pew = null;
-		try {
-			con = mConnection.mconnection();
-			String sql = "delete from customers where id = ?";
-			PreparedStatement prs = con.prepareStatement(sql);
-			prs.setInt(1, 2);
-			prs.execute();
-		}
-		catch(Exception e) {
-			System.out.println(e.getMessage());
-		}
-		finally {
-			mConnection.closeConnection(con, pew);
-		}
+	public static void main(String[] args) throws Exception{
+		String sql = "insert into customers(name,email,birth) values(?,?,?)";
+		String name = "pig";
+		String email = "qwert.com";
+//		SimpleDateFormat sim = new SimpleDateFormat("yy-MM-dd");
+//		Date da = sim.parse("20-09-06");
+		java.sql.Date date = new java.sql.Date(System.currentTimeMillis());
+		
+		union.update(sql, name,email,date);
+		
 	}
 }

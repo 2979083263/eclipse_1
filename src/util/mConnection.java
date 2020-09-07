@@ -4,6 +4,7 @@ import java.io.IOException;
 import java.io.InputStream;
 import java.sql.Connection;
 import java.sql.DriverManager;
+import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
 import java.util.Properties;
@@ -45,6 +46,32 @@ public class mConnection {
 		
 		try {
 			if(s != null)
+				c.close();
+		}
+		catch(Exception e){
+			e.printStackTrace();
+		}
+	}
+	
+	public static void closeConnection(Connection c , Statement s , ResultSet tes) {
+		try {
+			if(c != null)
+				c.close();
+		}
+		catch(Exception e){
+			e.printStackTrace();
+		}
+		
+		try {
+			if(s != null)
+				c.close();
+		}
+		catch(Exception e){
+			e.printStackTrace();
+		}
+		
+		try {
+			if(tes != null)
 				c.close();
 		}
 		catch(Exception e){
